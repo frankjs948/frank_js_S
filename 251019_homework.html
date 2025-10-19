@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>homework</title>
+</head>
+
+<body>
+    <script>
+        let score = 60
+        if (score >= 90) console.log("A");
+        else if (score >= 80) console.log("B");
+        else if (score >= 70) console.log("C");
+        else if (score >= 60) console.log("D");
+        else console.log("F");
+    </script>
+
+    <script>
+        let score1 = 95
+        if (score1 >= 90) grade = "A";
+        else if (score1 >= 80) grade = "B";
+        else if (score1 >= 70) grade = "C";
+        else if (score1 >= 60) grade = "D";
+        else grade = "F";
+        console.log(`分數 ${score1} 的等級是：${grade}`); 
+    </script>
+
+    <script>
+        let year = 2000
+        console.log((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0); // true
+    </script>
+
+    <script>
+        let year1 = 2100
+        let isLeap;
+        if ((year1 % 4 === 0 && year1 % 100 !== 0) || year1 % 400 === 0) {
+            isLeap = true;
+        } else { isLeap = false; }
+        console.log(`${year1} 年是閏年：${isLeap}`); // 2020 年是閏年：true
+    </script>
+
+    <script>
+        let height = 170
+        let weight = 70
+
+        let bmi = weight / (height / 100) ** 2
+        console.log(bmi)
+
+        if (bmi <= 18.5) status = "過輕";
+        else if (bmi <= 24.9) status = "正常";
+        else if (bmi <= 29.9) status = "過重";
+        else status = "肥胖";
+        console.log(`身高 ${height} cm，體重 ${weight}，BMI 值 ${bmi}，體重狀態：${status}`);
+
+    </script>
+
+
+</body>
+
+</html>

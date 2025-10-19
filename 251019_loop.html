@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>迴圈</title>
+</head>
+
+<body>
+    <H1>for 迴圈</H1>
+    <script>//for 迴圈要求重複{}內的代碼重複幾次
+        for (let i = 1; i <= 5; i++) {//flag 初始化執行一次指令；每次for都檢查是否要進入{}；每次{}結束做什麼事情
+            console.log('a', i)
+        }
+    </script>
+
+    <script>
+        let sum = 0;
+        for (let i = 0; i <= 10; i++) {
+            sum += i;
+        }
+        console.log('sum=', sum);
+    </script>
+
+
+    <H1>while 迴圈</H1>
+
+    <script>
+        let i = 0;
+        while (i < 5) {
+            console.log('Hello');
+            i++;
+        }
+    </script>
+    do-while 先跑一次再判斷
+    <script>
+        let j = 0
+        do {
+            console.log('hi');
+            j++;
+        } while (j < 2);
+    </script>
+
+    九九乘法表
+    <script>
+        for (let i = 2; i < 10; i++) {
+            let iMixStr = '';
+            for (let j = 1; j < 10; j++) {
+                iMixStr += `${i}x${j}=${i * j}\n`;
+            }
+            console.log(iMixStr);
+        }
+
+    </script>
+    使用 for 迴圈印出 1 到 100 的奇數
+
+    <script>
+        for (let i = 1; i <= 100; i++) {
+            if (i % 2 === 0) continue;
+            console.log(i);
+        }
+    </script>
+
+</body>
+
+</html>
