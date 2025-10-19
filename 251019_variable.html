@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Hello World</h1>
+
+    <script>
+        console.log("Hello World");
+    </script>
+
+    <script>
+        //let a=100; // 宣告變數 a ，並賦值為 100 數字
+        let a;
+        a = 100;
+
+        let b = 'Frank';  // 宣告變數 b ，並賦值為 Frank 字串
+
+        const c = 500; // 宣告常數 C (不可修改，可保護此變數部會被某行代碼修改)，並賦值為 500 數字
+
+        let num = 100;
+        let studentNewName = 'Frank';
+
+        console.log('a =', a);
+        console.log('b =', b);
+        console.log('c =', c);
+        console.log('num =', num);
+        console.log('studentNewName =', studentNewName);
+
+        //---------------------------------------------------------
+
+        // 作用域 (Scope)
+
+        let globalVar = "全域變數";
+
+        {
+            let localVar = "區域變數";
+            console.log(globalVar); // 可以存取全域變數
+            console.log(localVar);  // 可以存取區域變數
+        }
+
+        console.log(globalVar); // 可以存取全域變數
+        // console.log(localVar); // 錯誤！無法存取區域變數
+
+
+
+    </script>
+
+</body>
+
+</html>
