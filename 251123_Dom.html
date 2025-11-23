@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>網頁標題</title>
+</head>
+
+<body>
+    <h1 id="myTitle">主標題</h1>
+    <div id="container">
+        <p class="text">段落文字</p>
+        <p class="text">第二段文字</p>
+
+        <button id="btn">按鈕</button>
+    </div>
+
+    <script>
+        const elTitle = document.getElementById('myTitle');
+        console.log(elTitle);
+
+        const elH1 = document.getElementById('myTitle');
+        console.log('文字內容:', elH1.textContent);
+        elH1.textContent = '透過 JavaScript 修改標題文字';
+
+        console.log(elH1.innerHTML);
+        elH1.innerHTML = '透過 <span style="color: red;">JavaScript</span> 修改標題文字';
+
+        const elContainer = document.getElementById('container');
+        elContainer.innerHTML = '<p class="text">新增的段落文字</p>';
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+      
+        const now = new Date();
+
+        // 今天的最後一毫秒（23:59:59.999）
+        const todayLastTime = new Date();
+        todayLastTime.setHours(23, 59, 59, 999);
+
+        const diffAllMs = todayLastTime - now;
+
+        // 將毫秒拆為 時/分/秒/毫秒
+        let diffMs = diffAllMs % 1000;
+        let totalSeconds = Math.floor(diffAllMs / 1000);
+        let diffS = totalSeconds % 60;
+
+        let totalMinutes = Math.floor(totalSeconds / 60);
+        let diffM = totalMinutes % 60;
+
+        let diffH = Math.floor(totalMinutes / 60);
+
+        console.log(diffAllMs);
+        console.log(`距離今天結束還有 ${diffH} 小時 ${diffM} 分鐘 ${diffS} 秒 ${diffMs} 毫秒`);
+
+
+
+        function getCountDownToNewYear() {
+            const now = new Date();
+            const currentYear = now.getFullYear();
+            const nextYear = currentYear + 1;
+            const newYearTime = new Date(`${nextYear}-01-01T00:00:00`);
+
+            const diffAllMs = newYearTime - now;
+
+            let diffMs = diffAllMs % 1000;
+            let totalSeconds = Math.floor(diffAllMs / 1000);
+            let diffS = totalSeconds % 60;
+
+            let totalMinutes = Math.floor(totalSeconds / 60);
+            let diffM = totalMinutes % 60;
+
+            let diffH = Math.floor(totalMinutes / 60);
+            let diffD = Math.floor(diffH / 24);
+            diffH = diffH % 24;
+
+            console.log(`距離新年還有 ${diffD} 天 ${diffH} 小時 ${diffM} 分鐘 ${diffS} 秒 ${diffMs} 毫秒`);
+        }
+
+        console.log(getCountDownToNewYear());
+
+
+    </script>
+
+    
+
+    
+
+</body>
+
+</html>
