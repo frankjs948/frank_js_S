@@ -21,12 +21,12 @@
   <script src="plugins/masonry.pkgd.min.js"></script>
   <!-- day.js -->
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/localeData.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/isSameOrBefore.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/isBetween.js"></script>
   <!-- custom -->
   <link rel="stylesheet" href="plugins/style.css">
   <link rel="stylesheet" href="plugins/lokiCalendar.css">
-
-  
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#lokiMenu">
@@ -432,7 +432,7 @@
               </div>
               <div class="leftCal">
                 <div class="leftBar">
-                  <h4> 十二月  </h4>
+                  <h4></h4>
                   <ul>
                     <li>Mo</li>
                     <li>Tu</li>
@@ -444,47 +444,11 @@
                   </ul>
                 </div>
                 <ul class="leftDayList">
-                  <li class="JsCal"></li>
-                  <li class="JsCal"></li>
-                  <li class="JsCal"></li>
-                  <li class="JsCal"></li>
-                  <li class="JsCal"></li>
-                  <li class="delDay JsCal">1</li>
-                  <li class="delDay JsCal">2</li>
-                  <li class="delDay JsCal">3</li>
-                  <li class="delDay JsCal">4</li>
-                  <li class="delDay JsCal">5</li>
-                  <li class="emptyDay JsCal">6</li>
-                  <li class="emptyDay JsCal">7</li>
-                  <li class="emptyDay JsCal holiday">8</li>
-                  <li class="emptyDay JsCal holiday">9</li>
-                  <li class="emptyDay JsCal holiday">10</li>
-                  <li class="emptyDay JsCal">11</li>
-                  <li class="emptyDay JsCal">12</li>
-                  <li class="emptyDay JsCal">13</li>
-                  <li class="emptyDay JsCal">14</li>
-                  <li class="emptyDay JsCal holiday">15</li>
-                  <li class="emptyDay JsCal holiday">16</li>
-                  <li class="emptyDay JsCal">17</li>
-                  <li class="emptyDay JsCal">18</li>
-                  <li class="emptyDay JsCal">19</li>
-                  <li class="emptyDay JsCal">20</li>
-                  <li class="emptyDay JsCal">21</li>
-                  <li class="emptyDay JsCal holiday">22</li>
-                  <li class="emptyDay JsCal holiday">23</li>
-                  <li class="emptyDay JsCal">24</li>
-                  <li class="emptyDay JsCal">25</li>
-                  <li class="emptyDay JsCal">26</li>
-                  <li class="emptyDay JsCal">27</li>
-                  <li class="emptyDay JsCal">28</li>
-                  <li class="emptyDay JsCal holiday">29</li>
-                  <li class="emptyDay JsCal holiday">30</li>
-                  <li class="emptyDay JsCal">31</li>
                 </ul>
               </div>
               <div class="rightCal">
                 <div class="rightBar">
-                  <h4> 一月 </h4>
+                  <h4></h4>
                   <ul>
                     <li>Mo</li>
                     <li>Tu</li>
@@ -496,37 +460,6 @@
                   </ul>
                 </div>
                 <ul class="rightDayList">
-                  <li class="JsCal"></li>
-                  <li class="emptyDay JsCal">1</li>
-                  <li class="emptyDay JsCal">2</li>
-                  <li class="emptyDay JsCal">3</li>
-                  <li class="emptyDay JsCal">4</li>
-                  <li class="fullDay JsCal holiday">5</li>
-                  <li class="fullDay JsCal holiday">6</li>
-                  <li class="emptyDay JsCal">7</li>
-                  <li class="emptyDay JsCal">8</li>
-                  <li class="emptyDay JsCal">9</li>
-                  <li class="emptyDay JsCal">10</li>
-                  <li class="emptyDay JsCal">11</li>
-                  <li class="emptyDay JsCal holiday">12</li>
-                  <li class="emptyDay JsCal holiday">13</li>
-                  <li class="emptyDay JsCal">14</li>
-                  <li class="emptyDay JsCal">15</li>
-                  <li class="emptyDay JsCal selectHead">16</li>
-                  <li class="emptyDay JsCal selectConnect">17</li>
-                  <li class="emptyDay JsCal selectConnect">18</li>
-                  <li class="fullDay JsCal holiday selectConnect">19</li>
-                  <li class="emptyDay JsCal holiday selectFoot">20</li>
-                  <li class="emptyDay JsCal">21</li>
-                  <li class="emptyDay JsCal">22</li>
-                  <li class="emptyDay JsCal">23</li>
-                  <li class="emptyDay JsCal">24</li>
-                  <li class="emptyDay JsCal">25</li>
-                  <li class="emptyDay JsCal holiday">26</li>
-                  <li class="emptyDay JsCal holiday">27</li>
-                  <li class="emptyDay JsCal">28</li>
-                  <li class="emptyDay JsCal">29</li>
-                  <li class="emptyDay JsCal">30</li>
                 </ul>
               </div>
             </div>
@@ -735,10 +668,8 @@
       </div>
     </form>
   </section>
-
-
   <script src="plugins/custom.js"></script>
-  <script src="plugins/Calendar.js"></script>
+  <script src="plugins/lokiCalendar.js"></script>
 </body>
 
 </html>
