@@ -17,10 +17,10 @@ let
     normalCount: 0,
     holidayCount: 0,
     pallet: {
-      aArea: { title: '河畔 × A 區', storeCount: 10, sellInfo: '', sumPrice: 0, orderCount: 1 },
-      bArea: { title: '山間 × B 區', storeCount: 10, sellInfo: '', sumPrice: 0, orderCount: 3 },
-      cArea: { title: '平原 × C 區', storeCount: 10, sellInfo: '', sumPrice: 0, orderCount: 5 },
-      dArea: { title: '車屋 × D 區', storeCount: 10, sellInfo: '', sumPrice: 0, orderCount: 7 }
+      aArea: { title: '河畔 × A 區', storeCount: 10, sellInfo: '', sumPrice: 0, orderCount: 0 },
+      bArea: { title: '山間 × B 區', storeCount: 10, sellInfo: '', sumPrice: 0, orderCount: 0 },
+      cArea: { title: '平原 × C 區', storeCount: 10, sellInfo: '', sumPrice: 0, orderCount: 0 },
+      dArea: { title: '車屋 × D 區', storeCount: 10, sellInfo: '', sumPrice: 0, orderCount: 0 }
     }
   };
 
@@ -55,34 +55,62 @@ async function init() {
   //右半部的表格清單
   // ------------------------------------------------------------
   service.tableRefresh();
-}
 
-//-------------------------------------------------------------
+  //規劃USER互動事件 - 選擇帳數時候
+  // ------------------------------------------------------------
+  const allSelect = document.querySelectorAll('form select');
 
-const allSelects = document.querySelectorAll('form select');
+  // 當任何的SELECT改變時
+  document.querySelector('#selectPallet button').disabled = true; // 預設按鈕為不可點
+  allSelect.forEach(select => {
+    select.addEventListener('change', (e) => {
+      // console.log(tableData.pallet);
+      tableData.totalPrice = 0;
 
-// 
-allSelects.forEach(select => {
-  select.addEventListener('change', (e) => {
-    tableData.totalPrice = 0;
+      // 試圖再從四個SELECT抓出VALUE跟當下的小計相乘後加入總計totalPrice，也記錄orderCount
+      allSelect.forEach(s => {
+        // console.log(parseInt(s.value), tableData.pallet[s.name].sumPrice);
+        const orderCount = parseInt(s.value);
+        tableData.totalPrice += orderCount * tableData.pallet[s.name].sumPrice;
+        tableData.pallet[s.name].orderCount = orderCount;
+      });
 
-    allSelects.forEach(s => {
-      const orderCount = parseInt(s.value);
-      tableData.totalPrice += orderCount * tableData.pallet[s.name].sumPrice;
-      tableData.pallet[s.name].orderCount = orderCount;
+      //最後，隨著使用者每次的變化，將最新的總計更新到畫面上
+      const { totalPrice, normalCount, holidayCount } = tableData;
+      document.querySelector('form h3').textContent = `$${totalPrice} / ${normalCount}晚平日，${holidayCount}晚假日`;
+
+      // 如果價格是0，不給預約
+      document.querySelector('#selectPallet button').disabled = !totalPrice;
     });
-
-    const { totalPrice, normalCount, holidayCount } = tableData;
-    document.querySelector('form h3').innerText = `$${totalPrice} / ${normalCount}晚平日，${holidayCount}晚假日`;
   });
-  
-});
-    // 根據目前所有 select 的選擇值，來更新 totalPrice
 
-    const bookingCanvas = new bootstrap.offcanvas('.offcanvas')
-    document.querySelector('#selectPallet button').addEventListener('click', () => {
-      bookingCanvas.show();
+
+  // 規劃 offcanvas 的開關(按下預約按鈕時)
+  // ------------------------------------------------------------
+  const bookingCanvas = new bootstrap.Offcanvas('.offcanvas');
+  document.querySelector('#selectPallet button').addEventListener('click', () => {
+    // 刷新預約單的資訊(ol>li*有預定的營位)
+    let liStr = '';
+    for (const key in tableData.pallet) {
+      const { title, sellInfo, orderCount } = tableData.pallet[key];
+      if (!orderCount) continue; //跳過沒有訂的營位
+
+      liStr += `
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">${title}</div>
+          <div>${sellInfo}</div>
+        </div>
+        <span class="badge bg-warning rounded-pill">x <span class="fs-6">${orderCount}</span>帳</span>
+      </li>`;
     }
+
+    document.querySelector('.offcanvas .h5').textContent = document.querySelector('form h3').textContent;
+    document.querySelector('.offcanvas ol').innerHTML = liStr;
+    bookingCanvas.show();
+  })
+
+}
 
 init(); // 擱置一下，待會等await觸發再回來處理
 
@@ -300,11 +328,11 @@ const calenderService = () => {
         palletInfoDiv.innerHTML = storeCount ? sellInfo : '';
 
         // 更新庫存數
-        palletInfoDiv.previousElementSibling.querySelector('span').innerText = storeCount;
+        palletInfoDiv.previousElementSibling.querySelector('span').textContent = storeCount;
       });
 
       const { totalPrice, normalCount, holidayCount } = tableData;
-      document.querySelector('form h3').innerText = `$${totalPrice} / ${normalCount}晚平日，${holidayCount}晚假日`;
+      document.querySelector('form h3').textContent = `$${totalPrice} / ${normalCount}晚平日，${holidayCount}晚假日`;
     };
 
   return {
