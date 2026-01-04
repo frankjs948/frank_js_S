@@ -1,6 +1,0 @@
-# 在專案根目錄建立 .node-version
-echo "24.12.0" > .node-version
-
-# 進入專案目錄時，nvs 會自動切換到該版本
-cd my-project
-nvs auto on            # 啟用自動切換功能
