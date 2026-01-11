@@ -1,0 +1,11 @@
+{
+  "files.autoSave": "onWindowChange", // 當視窗變更時自動儲存檔案
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit" // 儲存時自動修復 ESLint 錯誤
+  },
+  "eslint.validate": [
+    "javascript", // 驗證 .js 檔案
+    "javascriptreact" // 驗證 .jsx 檔案
+  ],
+  "esline.useFlatConfig": true // 使用專案根目錄的 ESLint 設定檔
+} 

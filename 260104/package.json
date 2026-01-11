@@ -1,5 +1,9 @@
 {
 	"dependencies": {
 		"dayjs": "^1.11.19"
+	},
+	"devDependencies": {
+		"eslint-config-prettier": "^10.1.8",
+		"prettier": "^3.7.4"
 	}
 }
